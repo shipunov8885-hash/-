@@ -4,33 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Оренбургский филиал ООО «Газпромтранс»</title>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ---------- ГЛОБАЛЬНЫЕ СТИЛИ ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-            background: #f4f7fb;
+            background: #f0f6fc;
             color: #1e2a41;
             line-height: 1.6;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 24px; }
 
-        /* ---------- ШАПКА ---------- */
+        /* Шапка */
         header {
-            background: #003366;
+            background: linear-gradient(90deg, #003366 0%, #005a9c 100%);
             color: white;
-            padding: 18px 0;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .header-flex {
             display: flex;
@@ -39,76 +32,61 @@
             flex-wrap: wrap;
             gap: 16px;
         }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .logo i {
-            font-size: 2.4rem;
-            color: #ffcc00;
-        }
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-        .logo h1 span {
-            font-weight: 300;
-            font-size: 0.85rem;
-            opacity: 0.8;
-            display: block;
-        }
+        .logo { display: flex; align-items: center; gap: 14px; }
+        .logo i { font-size: 2.2rem; color: #ffcc00; filter: drop-shadow(0 0 6px rgba(255,204,0,0.5)); }
+        .logo h1 { font-size: 1.4rem; font-weight: 700; }
+        .logo h1 span { font-weight: 300; font-size: 0.8rem; opacity: 0.85; display: block; }
         .nav a {
             color: white;
             text-decoration: none;
-            margin-left: 24px;
+            margin-left: 22px;
             font-weight: 500;
-            transition: 0.3s;
             border-bottom: 2px solid transparent;
             padding-bottom: 4px;
-            font-size: 0.98rem;
+            transition: 0.3s;
+            font-size: 0.95rem;
         }
-        .nav a:hover {
-            border-bottom-color: #ffcc00;
-        }
-        .nav a i {
-            margin-right: 6px;
-        }
+        .nav a:hover { border-bottom-color: #ffcc00; color: #ffcc00; }
+        .nav a i { margin-right: 6px; }
 
-        /* ---------- ГЕРОЙ ---------- */
+        /* Герой */
         .hero {
-            background: linear-gradient(135deg, #003366 0%, #1a4d7a 100%);
+            background: linear-gradient(135deg, #003366 0%, #0079C2 50%, #1a4d7a 100%);
             color: white;
-            padding: 60px 0 50px;
+            padding: 70px 0 60px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .hero h2 {
-            font-size: 2.6rem;
-            margin-bottom: 12px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,204,0,0.08) 0%, transparent 70%);
+            animation: pulse 8s infinite;
         }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 20px;
-            opacity: 0.9;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
+        .hero h2 { font-size: 3rem; margin-bottom: 14px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); position: relative; }
+        .hero p { font-size: 1.2rem; max-width: 750px; margin: 0 auto 24px; opacity: 0.95; position: relative; }
         .hero .badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.12);
-            padding: 6px 24px;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 28px;
             border-radius: 30px;
-            font-size: 0.95rem;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(6px);
+            position: relative;
         }
 
-        /* ---------- СЕКЦИИ ---------- */
-        .section {
-            padding: 56px 0;
-        }
+        /* Секции */
+        .section { padding: 60px 0; }
         .section-title {
             text-align: center;
-            font-size: 2.1rem;
+            font-size: 2.2rem;
             margin-bottom: 36px;
             color: #003366;
             position: relative;
@@ -116,51 +94,122 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 70px;
-            height: 4px;
-            background: #ffcc00;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, #ffcc00, #ff9900);
             margin: 12px auto 0;
-            border-radius: 2px;
+            border-radius: 3px;
         }
-        .section-gray {
-            background: #eef3fa;
-        }
+        .section-gray { background: linear-gradient(180deg, #eef3fa 0%, #e3edf7 100%); }
 
-        /* ---------- КАРТОЧКИ ДЕЯТЕЛЬНОСТИ ---------- */
+        /* Двухколоночный блок */
+        .split-block {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 30px;
+            align-items: start;
+        }
+        @media (max-width: 1000px) { .split-block { grid-template-columns: 1fr; } }
+
+        /* Карточки деятельности */
         .activity-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
         .activity-card {
             background: white;
-            padding: 28px 20px;
-            border-radius: 16px;
+            padding: 26px 18px;
+            border-radius: 18px;
             text-align: center;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-            transition: 0.3s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
             border-bottom: 4px solid #ffcc00;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, #0079C2, #ffcc00);
         }
         .activity-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 51, 102, 0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0,51,102,0.15);
         }
-        .activity-card i {
-            font-size: 2.8rem;
-            color: #003366;
-            margin-bottom: 14px;
+        .activity-card i { font-size: 2.6rem; color: #0079C2; margin-bottom: 12px; }
+        .activity-card h4 { font-size: 1.05rem; color: #003366; margin-bottom: 6px; }
+        .activity-card p { font-size: 0.9rem; color: #4a5a72; }
+
+        /* Блок с кнопкой пропуска */
+        .pass-block {
+            margin-top: 28px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            border: 1px dashed #0079C2;
         }
-        .activity-card h4 {
-            font-size: 1.15rem;
-            color: #003366;
-            margin-bottom: 6px;
-        }
-        .activity-card p {
+        .pass-block p {
             font-size: 0.95rem;
-            color: #3d4f6a;
+            color: #4a5a72;
+            margin-bottom: 12px;
+        }
+        .btn-pass {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffcc00, #ffaa00);
+            color: #003366;
+            padding: 14px 40px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 6px 20px rgba(255,204,0,0.4);
+        }
+        .btn-pass:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 28px rgba(255,204,0,0.55);
+        }
+        .btn-pass i { margin-right: 10px; }
+
+        /* Карта */
+        .map-wrapper {
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid #d0dce8;
+        }
+        .map-svg-container svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            background: #f0f8ff;
+        }
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px 24px;
+            margin-top: 18px;
+            font-size: 0.9rem;
+        }
+        .map-legend span { display: flex; align-items: center; gap: 8px; }
+        .map-legend .dot {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid #003366;
         }
 
-        /* ---------- ИСТОРИЯ (сокращённая) ---------- */
+        /* История */
         .history-wrap {
             display: flex;
             flex-direction: column;
@@ -173,23 +222,16 @@
             align-items: flex-start;
             gap: 20px;
             background: white;
-            padding: 20px 28px;
-            border-radius: 14px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-            border-left: 5px solid #ffcc00;
+            padding: 20px 26px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            border-left: 6px solid #ffcc00;
+            transition: 0.3s;
         }
-        .history-item .year {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #003366;
-            min-width: 70px;
-        }
-        .history-item p {
-            margin: 0;
-            color: #1e2a41;
-        }
+        .history-item:hover { transform: translateX(6px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .history-item .year { font-weight: 800; font-size: 1.3rem; color: #0079C2; min-width: 80px; }
 
-        /* ---------- КОНТАКТЫ ---------- */
+        /* Контакты */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -198,199 +240,80 @@
         }
         .contact-box {
             background: white;
-            padding: 28px 32px;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            padding: 30px 34px;
+            border-radius: 20px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+            border-top: 5px solid #ffcc00;
         }
-        .contact-box h4 {
-            font-size: 1.2rem;
-            color: #003366;
-            margin-bottom: 14px;
-        }
-        .contact-box h4 i {
-            margin-right: 10px;
-            color: #ffcc00;
-        }
-        .contact-box ul {
-            list-style: none;
-            padding: 0;
-        }
+        .contact-box h4 { font-size: 1.2rem; color: #003366; margin-bottom: 14px; }
+        .contact-box h4 i { margin-right: 10px; color: #ffcc00; }
+        .contact-box ul { list-style: none; padding: 0; }
         .contact-box ul li {
-            padding: 6px 0;
+            padding: 8px 0;
             border-bottom: 1px solid #e9edf4;
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        .contact-box ul li:last-child {
-            border-bottom: none;
-        }
-        .contact-box ul li i {
-            width: 22px;
-            color: #003366;
-        }
+        .contact-box ul li:last-child { border-bottom: none; }
+        .contact-box ul li i { width: 22px; color: #0079C2; }
         .contact-box .btn {
             display: inline-block;
-            background: #003366;
+            background: linear-gradient(135deg, #0079C2, #005a8c);
             color: white;
             padding: 12px 32px;
             border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
-            transition: 0.3s;
-            margin-top: 12px;
+            margin-top: 14px;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 14px rgba(0,121,194,0.3);
         }
-        .contact-box .btn:hover {
-            background: #1a4d7a;
-            transform: scale(1.02);
-        }
-        .contact-box .btn i {
-            margin-right: 10px;
-        }
+        .contact-box .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,121,194,0.4); }
+        .contact-box .btn i { margin-right: 10px; }
         .contact-box .btn-gold {
-            background: #ffcc00;
+            background: linear-gradient(135deg, #ffcc00, #ffaa00);
             color: #003366;
+            box-shadow: 0 4px 14px rgba(255,204,0,0.4);
         }
-        .contact-box .btn-gold:hover {
-            background: #ffe066;
-        }
-        .security-phone {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #003366;
-        }
+        .contact-box .btn-gold:hover { box-shadow: 0 6px 20px rgba(255,204,0,0.5); }
+        .security-phone { font-size: 1.4rem; font-weight: 800; color: #003366; }
 
-        /* ---------- КАРТА ТЕРРИТОРИИ ---------- */
-        .map-wrapper {
-            background: white;
-            border-radius: 20px;
-            padding: 30px 30px 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            margin-top: 10px;
-        }
-        .map-svg-container {
-            width: 100%;
-            max-width: 820px;
-            margin: 0 auto;
-            display: block;
-        }
-        .map-svg-container svg {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 12px;
-            background: #f0f5fc;
-        }
-        .map-legend {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 18px 32px;
-            margin-top: 18px;
-            font-size: 0.95rem;
-        }
-        .map-legend span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .map-legend .dot {
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 2px solid #003366;
-        }
-        .dot-red {
-            background: #e63946;
-            border-color: #e63946;
-        }
-        .dot-blue {
-            background: #1e6091;
-            border-color: #1e6091;
-        }
-        .dot-green {
-            background: #2a9d8f;
-            border-color: #2a9d8f;
-        }
-        .dot-orange {
-            background: #f4a261;
-            border-color: #f4a261;
-        }
-        .dot-gold {
-            background: #ffcc00;
-            border-color: #ffcc00;
-        }
-
-        /* ---------- ПОДВАЛ ---------- */
+        /* Подвал */
         footer {
-            background: #1a2a3f;
+            background: linear-gradient(90deg, #1a2a3f 0%, #0f1c2b 100%);
             color: #b0c4dd;
-            padding: 28px 0;
+            padding: 30px 0;
             margin-top: 20px;
             text-align: center;
         }
-        footer .footer-flex {
+        .footer-flex {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             align-items: center;
             gap: 16px;
         }
-        footer a {
-            color: #ffcc00;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer a { color: #ffcc00; text-decoration: none; transition: 0.3s; }
+        footer a:hover { text-decoration: underline; color: #ffe066; }
 
-        /* ---------- АДАПТИВ ---------- */
+        /* Адаптив */
         @media (max-width: 820px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .history-item {
-                flex-direction: column;
-                gap: 6px;
-            }
-            .history-item .year {
-                min-width: auto;
-            }
-            .header-flex {
-                flex-direction: column;
-                align-items: center;
-            }
-            .nav a {
-                margin: 0 10px;
-                font-size: 0.9rem;
-            }
-            .hero h2 {
-                font-size: 2rem;
-            }
-            .section-title {
-                font-size: 1.7rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .hero {
-                padding: 40px 0;
-            }
-            .contact-box {
-                padding: 20px;
-            }
-            .map-wrapper {
-                padding: 16px;
-            }
+            .contact-grid { grid-template-columns: 1fr; }
+            .history-item { flex-direction: column; gap: 6px; }
+            .history-item .year { min-width: auto; }
+            .header-flex { flex-direction: column; align-items: center; }
+            .nav a { margin: 0 10px; font-size: 0.85rem; }
+            .hero h2 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ========== ШАПКА ========== -->
+    <!-- ШАПКА -->
     <header>
         <div class="container header-flex">
             <div class="logo">
@@ -401,14 +324,14 @@
             </div>
             <div class="nav">
                 <a href="#activity"><i class="fas fa-cogs"></i> Деятельность</a>
+                <a href="#map"><i class="fas fa-map"></i> Схема</a>
                 <a href="#history"><i class="fas fa-clock"></i> История</a>
                 <a href="#contacts"><i class="fas fa-phone"></i> Контакты</a>
-                <a href="#map"><i class="fas fa-map"></i> Карта</a>
             </div>
         </div>
     </header>
 
-    <!-- ========== ГЕРОЙ ========== -->
+    <!-- ГЕРОЙ -->
     <section class="hero">
         <div class="container">
             <h2>Оренбургский филиал</h2>
@@ -423,36 +346,229 @@
         </div>
     </section>
 
-    <!-- ========== ДЕЯТЕЛЬНОСТЬ ========== -->
+    <!-- ДЕЯТЕЛЬНОСТЬ + КАРТА -->
     <section class="section" id="activity">
         <div class="container">
-            <h2 class="section-title">Основные направления деятельности</h2>
-            <div class="activity-grid">
-                <div class="activity-card">
-                    <i class="fas fa-train"></i>
-                    <h4>Железнодорожные перевозки</h4>
-                    <p>Вывоз товарной продукции предприятий ПАО «Газпром», доставка потребителям.</p>
+            <div class="split-block">
+
+                <!-- Левая колонка -->
+                <div>
+                    <h2 class="section-title" style="font-size:1.6rem;">Основные направления</h2>
+                    <div class="activity-grid" style="grid-template-columns:1fr 1fr;">
+                        <div class="activity-card">
+                            <i class="fas fa-train"></i>
+                            <h4>Ж/Д перевозки</h4>
+                            <p>Вывоз продукции ПАО «Газпром», доставка потребителям.</p>
+                        </div>
+                        <div class="activity-card">
+                            <i class="fas fa-wrench"></i>
+                            <h4>Ремонт и обслуживание</h4>
+                            <p>Текущий ремонт, локомотивное депо, испытательный пункт.</p>
+                        </div>
+                        <div class="activity-card">
+                            <i class="fas fa-flask"></i>
+                            <h4>Химлаборатория</h4>
+                            <p>Контроль качества и безопасности, испытания материалов.</p>
+                        </div>
+                        <div class="activity-card">
+                            <i class="fas fa-truck"></i>
+                            <h4>Логистика</h4>
+                            <p>Полный спектр логистических услуг, подача-уборка вагонов.</p>
+                        </div>
+                    </div>
+
+                    <!-- Кнопка заказа пропуска -->
+                    <div class="pass-block">
+                        <p><i class="fas fa-id-card" style="color:#0079C2;"></i> Нужен пропуск на территорию? Оформите заявку онлайн.</p>
+                        <a href="#" class="btn-pass" onclick="alert('Форма заказа пропуска будет открыта'); return false;">
+                            <i class="fas fa-id-card"></i> Заказать пропуск
+                        </a>
+                    </div>
                 </div>
-                <div class="activity-card">
-                    <i class="fas fa-wrench"></i>
-                    <h4>Ремонт и обслуживание</h4>
-                    <p>Текущий отцепочный ремонт, локомотивное депо, ремонтно-испытательный пункт.</p>
+
+                <!-- Правая колонка: карта -->
+                <div id="map">
+                    <h2 class="section-title" style="font-size:1.6rem;">Схема территории</h2>
+                    <div class="map-wrapper">
+                        <div class="map-svg-container">
+                            <svg viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="gradAdmin" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#1e6091;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#003366;stop-opacity:1" />
+                                    </linearGradient>
+                                    <linearGradient id="gradEC" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#2a6f97;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#1a4d7a;stop-opacity:1" />
+                                    </linearGradient>
+                                    <linearGradient id="gradPath" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#2a9d8f;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#1a7a6e;stop-opacity:1" />
+                                    </linearGradient>
+                                    <linearGradient id="gradSecurity" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#e63946;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#8a1f1f;stop-opacity:1" />
+                                    </linearGradient>
+                                    <linearGradient id="gradWarehouse" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#f4a261;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#e76f51;stop-opacity:1" />
+                                    </linearGradient>
+                                    <linearGradient id="gradTransport" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#6a4c93;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#4a2f6e;stop-opacity:1" />
+                                    </linearGradient>
+                                    <linearGradient id="gradRoad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#a0aec0;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#cbd5e0;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#a0aec0;stop-opacity:1" />
+                                    </linearGradient>
+                                    <marker id="arrowRed" markerWidth="12" markerHeight="12" refX="7" refY="4" orient="auto">
+                                        <path d="M0,0 L8,4 L0,8 Z" fill="#e63946" />
+                                    </marker>
+                                </defs>
+
+                                <!-- Фон -->
+                                <rect width="900" height="640" fill="#eaf3fb" rx="16" />
+
+                                <!-- Роза ветров -->
+                                <g transform="translate(820, 80)">
+                                    <circle cx="0" cy="0" r="30" fill="white" stroke="#003366" stroke-width="2" opacity="0.9"/>
+                                    <text x="0" y="-14" text-anchor="middle" font-size="11" font-weight="bold" fill="#e63946">С</text>
+                                    <text x="0" y="22" text-anchor="middle" font-size="11" font-weight="bold" fill="#003366">Ю</text>
+                                    <text x="-22" y="4" text-anchor="middle" font-size="11" font-weight="bold" fill="#003366">З</text>
+                                    <text x="22" y="4" text-anchor="middle" font-size="11" font-weight="bold" fill="#003366">В</text>
+                                    <polygon points="0,-8 5,8 -5,8" fill="#e63946" />
+                                </g>
+
+                                <!-- ВЫ ЗДЕСЬ -->
+                                <circle cx="70" cy="310" r="26" fill="#ffcc00" stroke="#003366" stroke-width="4" />
+                                <circle cx="70" cy="310" r="12" fill="#e63946" />
+                                <text x="70" y="365" font-family="Arial" font-size="14" fill="#003366" text-anchor="middle" font-weight="bold">Вы здесь</text>
+
+                                <path d="M 100 310 L 150 310" stroke="#003366" stroke-width="4" marker-end="url(#arrowRed)" />
+
+                                <!-- КПП -->
+                                <rect x="160" y="270" width="110" height="80" fill="url(#gradSecurity)" rx="10" stroke="#8a1f1f" stroke-width="2">
+                                    <title>Контрольно-пропускной пункт</title>
+                                </rect>
+                                <text x="215" y="300" fill="white" font-size="13" text-anchor="middle" font-weight="bold">КПП</text>
+                                <text x="215" y="318" fill="white" font-size="10" text-anchor="middle">Служба</text>
+                                <text x="215" y="332" fill="white" font-size="10" text-anchor="middle">безопасности</text>
+
+                                <path d="M 275 310 L 320 310" stroke="#003366" stroke-width="4" marker-end="url(#arrowRed)" />
+
+                                <!-- ТЕРРИТОРИЯ -->
+                                <rect x="330" y="60" width="540" height="540" fill="#f8fbfe" stroke="#0079C2" stroke-width="2" stroke-dasharray="10,5" rx="16" />
+                                <text x="600" y="95" font-family="Arial" font-size="16" fill="#0079C2" text-anchor="middle" font-weight="bold">ТЕРРИТОРИЯ ФИЛИАЛА</text>
+
+                                <!-- АВТОДОРОГА -->
+                                <rect x="340" y="290" width="520" height="50" fill="url(#gradRoad)" rx="6" />
+                                <line x1="340" y1="305" x2="860" y2="305" stroke="#ffcc00" stroke-width="2" stroke-dasharray="12,8" />
+                                <line x1="340" y1="325" x2="860" y2="325" stroke="#ffcc00" stroke-width="2" stroke-dasharray="12,8" />
+                                <text x="600" y="320" font-family="Arial" font-size="12" fill="#003366" text-anchor="middle" font-weight="bold">АВТОДОРОГА</text>
+
+                                <!-- АДМИНИСТРАТИВНОЕ ЗДАНИЕ -->
+                                <rect x="360" y="120" width="150" height="100" fill="url(#gradAdmin)" rx="10" stroke="#003366" stroke-width="2">
+                                    <title>Административное здание</title>
+                                </rect>
+                                <text x="435" y="160" fill="white" font-size="14" text-anchor="middle" font-weight="bold">Административное</text>
+                                <text x="435" y="180" fill="white" font-size="14" text-anchor="middle" font-weight="bold">здание</text>
+
+                                <!-- ПОСТ ЭЦ -->
+                                <rect x="560" y="120" width="140" height="100" fill="url(#gradEC)" rx="10" stroke="#003366" stroke-width="2">
+                                    <title>Пост ЭЦ ст. Заводская</title>
+                                </rect>
+                                <text x="630" y="160" fill="white" font-size="14" text-anchor="middle" font-weight="bold">Пост ЭЦ</text>
+                                <text x="630" y="180" fill="white" font-size="11" text-anchor="middle">ст. Заводская</text>
+
+                                <!-- СКЛАД -->
+                                <rect x="740" y="120" width="110" height="100" fill="url(#gradWarehouse)" rx="10" stroke="#e76f51" stroke-width="2">
+                                    <title>Склад</title>
+                                </rect>
+                                <text x="795" y="160" fill="white" font-size="14" text-anchor="middle" font-weight="bold">Склад</text>
+
+                                <!-- СЛУЖБА ПУТИ -->
+                                <rect x="360" y="370" width="150" height="100" fill="url(#gradPath)" rx="10" stroke="#1a7a6e" stroke-width="2">
+                                    <title>Здание службы пути</title>
+                                </rect>
+                                <text x="435" y="410" fill="white" font-size="14" text-anchor="middle" font-weight="bold">Здание</text>
+                                <text x="435" y="428" fill="white" font-size="13" text-anchor="middle">службы пути</text>
+
+                                <!-- АВТОТРАНСПОРТНЫЙ УЧАСТОК -->
+                                <rect x="560" y="370" width="140" height="100" fill="url(#gradTransport)" rx="10" stroke="#4a2f6e" stroke-width="2">
+                                    <title>Автотранспортный участок</title>
+                                </rect>
+                                <text x="630" y="405" fill="white" font-size="12" text-anchor="middle" font-weight="bold">Автотранспортный</text>
+                                <text x="630" y="422" fill="white" font-size="12" text-anchor="middle" font-weight="bold">участок</text>
+
+                                <!-- КОТЕЛЬНАЯ -->
+                                <rect x="740" y="370" width="110" height="100" fill="#b5651d" rx="10" stroke="#7a4514" stroke-width="2">
+                                    <title>Котельная</title>
+                                </rect>
+                                <text x="795" y="410" fill="white" font-size="13" text-anchor="middle" font-weight="bold">Котельная</text>
+
+                                <!-- СТОЛОВАЯ -->
+                                <rect x="450" y="500" width="140" height="60" fill="#e9c46a" rx="10" stroke="#b8942e" stroke-width="2">
+                                    <title>Столовая</title>
+                                </rect>
+                                <text x="520" y="530" fill="#003366" font-size="13" text-anchor="middle" font-weight="bold">Столовая</text>
+
+                                <!-- Ж/Д ПУТИ -->
+                                <rect x="340" y="580" width="520" height="14" fill="#8b9bb5" rx="4" />
+                                <line x1="340" y1="587" x2="860" y2="587" stroke="#5a6b84" stroke-width="2" stroke-dasharray="8,6" />
+                                <text x="600" y="610" font-family="Arial" font-size="11" fill="#5a6b84" text-anchor="middle">Ж/Д пути</text>
+
+                                <!-- ===== ПУТИ ЭВАКУАЦИИ ===== -->
+                                <path d="M 435 225 L 435 280" stroke="#e63946" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowRed)" />
+                                <path d="M 630 225 L 630 280" stroke="#e63946" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowRed)" />
+                                <path d="M 795 225 L 795 280" stroke="#e63946" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowRed)" />
+                                <path d="M 435 370 L 435 335" stroke="#e63946" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowRed)" />
+                                <path d="M 630 370 L 630 335" stroke="#e63946" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowRed)" />
+                                <path d="M 795 370 L 795 335" stroke="#e63946" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowRed)" />
+                                <path d="M 520 500 L 520 450" stroke="#e63946" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowRed)" />
+
+                                <!-- ЛЕГЕНДА -->
+                                <rect x="20" y="440" width="290" height="180" fill="white" rx="12" opacity="0.96" stroke="#c0cbd8" stroke-width="1.5" />
+                                <text x="35" y="465" fill="#003366" font-size="13" font-weight="bold">Условные обозначения:</text>
+                                
+                                <circle cx="45" cy="485" r="7" fill="#ffcc00" stroke="#003366" stroke-width="2" />
+                                <text x="62" y="490" fill="#1e2a41" font-size="11">Вы здесь</text>
+                                
+                                <circle cx="45" cy="507" r="7" fill="#e63946" />
+                                <text x="62" y="512" fill="#1e2a41" font-size="11">КПП / Служба безопасности</text>
+                                
+                                <circle cx="45" cy="529" r="7" fill="#1e6091" />
+                                <text x="62" y="534" fill="#1e2a41" font-size="11">Административное здание</text>
+                                
+                                <circle cx="45" cy="551" r="7" fill="#2a6f97" />
+                                <text x="62" y="556" fill="#1e2a41" font-size="11">Пост ЭЦ</text>
+                                
+                                <circle cx="45" cy="573" r="7" fill="#2a9d8f" />
+                                <text x="62" y="578" fill="#1e2a41" font-size="11">Служба пути</text>
+
+                                <line x1="35" y1="592" x2="295" y2="592" stroke="#e63946" stroke-width="3" stroke-dasharray="6,4" />
+                                <text x="62" y="605" fill="#e63946" font-size="11" font-weight="bold">Пути эвакуации</text>
+                            </svg>
+                        </div>
+                        <div class="map-legend">
+                            <span><span class="dot" style="background:#ffcc00;border-color:#003366;"></span> Вы здесь</span>
+                            <span><span class="dot" style="background:#e63946;border-color:#8a1f1f;"></span> КПП / СБ</span>
+                            <span><span class="dot" style="background:#1e6091;border-color:#003366;"></span> Адм. здание</span>
+                            <span><span class="dot" style="background:#2a6f97;border-color:#003366;"></span> Пост ЭЦ</span>
+                            <span><span class="dot" style="background:#2a9d8f;border-color:#1a7a6e;"></span> Служба пути</span>
+                            <span><span class="dot" style="background:#f4a261;border-color:#e76f51;"></span> Склад</span>
+                            <span><span class="dot" style="background:#6a4c93;border-color:#4a2f6e;"></span> Автотранспортный участок</span>
+                            <span><span class="dot" style="background:#b5651d;border-color:#7a4514;"></span> Котельная</span>
+                            <span><span class="dot" style="background:#e9c46a;border-color:#b8942e;"></span> Столовая</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="activity-card">
-                    <i class="fas fa-flask"></i>
-                    <h4>Химическая лаборатория</h4>
-                    <p>Контроль качества и безопасности, испытания материалов и арматуры.</p>
-                </div>
-                <div class="activity-card">
-                    <i class="fas fa-truck"></i>
-                    <h4>Логистика и экспедирование</h4>
-                    <p>Полный спектр логистических услуг, подача-уборка вагонов, организация ремонта.</p>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ========== ИСТОРИЯ (сокращённая) ========== -->
+    <!-- ИСТОРИЯ -->
     <section class="section section-gray" id="history">
         <div class="container">
             <h2 class="section-title">История филиала</h2>
@@ -473,12 +589,11 @@
         </div>
     </section>
 
-    <!-- ========== КОНТАКТЫ + СЛУЖБА БЕЗОПАСНОСТИ ========== -->
+    <!-- КОНТАКТЫ -->
     <section class="section" id="contacts">
         <div class="container">
             <h2 class="section-title">Контакты и безопасность</h2>
             <div class="contact-grid">
-                <!-- Левая колонка -->
                 <div class="contact-box">
                     <h4><i class="fas fa-address-card"></i> Общая информация</h4>
                     <ul>
@@ -490,8 +605,6 @@
                         <i class="fas fa-id-card"></i> Заказать пропуск
                     </a>
                 </div>
-
-                <!-- Правая колонка -->
                 <div class="contact-box">
                     <h4><i class="fas fa-shield-alt"></i> Служба безопасности</h4>
                     <ul>
@@ -506,12 +619,10 @@
                         <li><i class="fas fa-ban"></i> Запрещён алкоголь, наркотики</li>
                         <li><i class="fas fa-video"></i> Фото- и видеосъёмка объектов запрещена</li>
                     </ul>
-                    <!-- ССЫЛКА НА САЙТ ГАЗПРОМТРАНС (изменено) -->
                     <a href="https://gazpromtrans.ru" target="_blank" class="btn">
                         <i class="fas fa-external-link-alt"></i> Официальный сайт ООО «Газпромтранс»
                     </a>
                     <br />
-                    <!-- Ссылка на правила ПАО Газпром (оставлена) -->
                     <a href="https://www.gazprom.ru/about/production/safety/" target="_blank" style="display: inline-block; margin-top: 10px; color: #003366; font-weight: 500; text-decoration: underline;">
                         <i class="fas fa-arrow-right"></i> Подробнее о системе производственной безопасности
                     </a>
@@ -520,70 +631,7 @@
         </div>
     </section>
 
-    <!-- ========== КАРТА ТЕРРИТОРИИ ========== -->
-    <section class="section section-gray" id="map">
-        <div class="container">
-            <h2 class="section-title">Схема территории</h2>
-            <div class="map-wrapper">
-                <div class="map-svg-container">
-                    <svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="820" height="440" fill="#e6edf6" rx="12" />
-                        <!-- Ж/Д пути -->
-                        <rect x="60" y="180" width="700" height="28" fill="#8b9bb5" rx="4" />
-                        <rect x="60" y="210" width="700" height="8" fill="#6a7b94" rx="2" />
-                        <rect x="60" y="220" width="700" height="28" fill="#8b9bb5" rx="4" />
-                        <line x1="120" y1="180" x2="120" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <line x1="180" y1="180" x2="180" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <line x1="240" y1="180" x2="240" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <line x1="300" y1="180" x2="300" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <line x1="360" y1="180" x2="360" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <line x1="420" y1="180" x2="420" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <line x1="480" y1="180" x2="480" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <line x1="540" y1="180" x2="540" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <line x1="600" y1="180" x2="600" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <line x1="660" y1="180" x2="660" y2="248" stroke="#5a6b84" stroke-width="2" />
-                        <!-- АБК -->
-                        <rect x="90" y="60" width="140" height="80" fill="#1e6091" rx="6" stroke="#003366" stroke-width="2" />
-                        <text x="118" y="100" fill="white" font-size="13" font-weight="bold">АБК</text>
-                        <text x="110" y="120" fill="#d4e2f0" font-size="10">Административно-</text>
-                        <text x="105" y="135" fill="#d4e2f0" font-size="10">бытовой корпус</text>
-                        <!-- Пост ЭЦ -->
-                        <rect x="580" y="55" width="130" height="70" fill="#2a6f97" rx="6" stroke="#003366" stroke-width="2" />
-                        <text x="600" y="82" fill="white" font-size="12" font-weight="bold">Пост ЭЦ</text>
-                        <text x="588" y="100" fill="#d4e2f0" font-size="10">ст. Заводская</text>
-                        <!-- Бытовой корпус -->
-                        <rect x="350" y="300" width="140" height="70" fill="#2a9d8f" rx="6" stroke="#1a7a6e" stroke-width="2" />
-                        <text x="380" y="335" fill="white" font-size="13" font-weight="bold">Бытовой</text>
-                        <text x="380" y="355" fill="#d4e2f0" font-size="11">корпус</text>
-                        <!-- Точка "Вы здесь" -->
-                        <circle cx="710" cy="320" r="16" fill="#ffcc00" stroke="#003366" stroke-width="3" />
-                        <circle cx="710" cy="320" r="8" fill="#e63946" />
-                        <text x="700" y="355" fill="#003366" font-size="11" font-weight="bold">▼ Вы здесь</text>
-                        <text x="340" y="172" fill="#3d4f6a" font-size="11" font-weight="bold">Ж/Д пути</text>
-                        <line x1="230" y1="100" x2="350" y2="100" stroke="#8b9bb5" stroke-width="1.5" stroke-dasharray="6,4" />
-                        <line x1="710" y1="100" x2="580" y2="90" stroke="#8b9bb5" stroke-width="1.5" stroke-dasharray="6,4" />
-                        <line x1="350" y1="335" x2="230" y2="100" stroke="#8b9bb5" stroke-width="1.5" stroke-dasharray="6,4" />
-                        <!-- Легенда -->
-                        <rect x="20" y="370" width="180" height="60" fill="white" rx="8" opacity="0.85" stroke="#c0cbd8" />
-                        <text x="32" y="390" fill="#003366" font-size="11" font-weight="bold">Условные обозначения:</text>
-                        <circle cx="40" cy="408" r="6" fill="#1e6091" />
-                        <text x="54" y="412" fill="#1e2a41" font-size="10">– Административные здания</text>
-                        <circle cx="40" cy="424" r="6" fill="#2a9d8f" />
-                        <text x="54" y="428" fill="#1e2a41" font-size="10">– Производственные корпуса</text>
-                    </svg>
-                </div>
-                <div class="map-legend">
-                    <span><span class="dot dot-blue"></span> АБК (Административно-бытовой)</span>
-                    <span><span class="dot" style="background:#2a6f97;border-color:#2a6f97;"></span> Пост ЭЦ ст. Заводская</span>
-                    <span><span class="dot dot-green"></span> Бытовой корпус</span>
-                    <span><span class="dot" style="background:#8b9bb5;border-color:#8b9bb5;"></span> Ж/Д пути</span>
-                    <span><span class="dot dot-gold" style="border-color:#e63946;"></span> Вы находитесь здесь</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== ПОДВАЛ ========== -->
+    <!-- ПОДВАЛ -->
     <footer>
         <div class="container footer-flex">
             <div>
@@ -595,7 +643,6 @@
                 <span><i class="fas fa-envelope"></i> office@gt.orb.ru</span>
             </div>
             <div>
-                <!-- Ссылка на сайт Газпромтранс (изменено) -->
                 <a href="https://gazpromtrans.ru" target="_blank" style="color:#b0c4dd;">
                     <i class="fas fa-globe"></i> gazpromtrans.ru
                 </a>
